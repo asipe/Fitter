@@ -27,11 +27,11 @@ namespace Fitter.Sample {
                      };
       var paths = new Builder().Build(spec);
 
-      Console.WriteLine("paths.Root: {0}", paths.Root);
-      Console.WriteLine("paths.Source: {0}", paths.Source);
-      Console.WriteLine("paths.Debug: {0}", paths.Debug);
-      Console.WriteLine("paths.Working: {0}", paths.Working);
-      Console.WriteLine("paths.Temp: {0}", paths.Temp);
+      Console.WriteLine("paths.Root: {0}", paths.Root);       // z:\project1
+      Console.WriteLine("paths.Source: {0}", paths.Source);   // z:\project1\source
+      Console.WriteLine("paths.Debug: {0}", paths.Debug);     // z:\project1\debug
+      Console.WriteLine("paths.Working: {0}", paths.Working); // z:\project1\debug\working
+      Console.WriteLine("paths.Temp: {0}", paths.Temp);       // z:\project1\debug\working\temp
     }
   }
 }
