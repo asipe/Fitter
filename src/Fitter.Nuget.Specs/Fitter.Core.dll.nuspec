@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Fitter.Core</id>
+    <version>0.0.0.1</version>
+    <authors>asipe</authors>
+    <owners>asipe</owners>
+    <licenseUrl>https://github.com/asipe/Fitter/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/asipe/Fitter</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Micro library to help with building sets of file/directory paths</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>path file directory builder</tags>
+    <dependencies/>
+  </metadata>
+</package>

@@ -1,0 +1,11 @@
+bin
+obj
+*.user
+*.suo
+_localonly
+TestResult.xml
+debug
+test_results
+thirdparty/packages
+nugetworking
+src/Samples/**/packages

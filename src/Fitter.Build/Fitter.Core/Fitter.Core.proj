@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" InitialTargets="EchoInfo;ValidateFrameworkVersion" DefaultTargets="Clean;Build;CleanTemp" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+  <PropertyGroup>
+    <ProjectGuid>{71c83ae2-59d2-4273-8877-d483652d5b84}</ProjectGuid>
+    <RootNamespace>Fitter.Core</RootNamespace>
+    <AssemblyName>Fitter.Core</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\Fitter.props" />
+  <Import Project="..\Fitter.targets" />
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(SrcDir)\Fitter.Core\**\*.cs"/>
+    <Compile Include="$(SrcDir)\Fitter.Properties\*.cs"/>
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
