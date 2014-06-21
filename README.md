@@ -4,7 +4,7 @@ Fitter is a simple micro framework for building sets of paths to files and direc
 
 [![Fitter.Core on NuGet](http://img.shields.io/nuget/v/Fitter.Core.svg?style=flat)](https://www.nuget.org/packages/Fitter.Core)
 [![Fitter.Core tag](http://img.shields.io/github/tag/asipe/fitter.svg?style=flat)](https://github.com/asipe/Fitter/tags)
-[![Fitter.Core license](http://img.shields.io/badge/licsense-mit-blue.svg?style=flat)](https://raw.githubusercontent.com/asipe/Fitter/master/LICENSE)
+[![Fitter.Core license](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://raw.githubusercontent.com/asipe/Fitter/master/LICENSE)
 
 ### Install
 
