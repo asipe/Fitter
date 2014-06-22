@@ -5,7 +5,7 @@
     <version>0.0.0.1</version>
     <authors>asipe</authors>
     <owners>asipe</owners>
-    <licenseUrl>https://github.com/asipe/Fitter/blob/master/LICENSE.txt</licenseUrl>
+    <licenseUrl>https://github.com/asipe/Fitter/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/asipe/Fitter</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Micro library to help with building sets of file/directory paths</description>
