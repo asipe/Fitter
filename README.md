@@ -8,7 +8,8 @@ Fitter is a simple micro framework for building sets of paths to files and direc
 
 ### Install
 
-nuget package page: https://nuget.org/packages/Fitter.Core/
+nuget package (Fitter.Core): https://nuget.org/packages/Fitter.Core/
+nuget package (Fitter.ScriptCs): https://nuget.org/packages/Fitter.ScriptCs/
 
 install via package manager: Install-Package Fitter.Core
 
