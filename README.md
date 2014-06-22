@@ -23,22 +23,38 @@ namespace Fitter.Sample {
   internal class Program {
     private static void Main(string[] args) {
       var spec = new {
-                       Root = @"z:\project1",
+                       Root = @"z:\project1\<version>",
                        Source = @"<root>\source",
                        Debug = @"<root>\debug",
-                       Temp = @"<working>\temp",
-                       Working = @"<debug>\working"
+                       Temp = @"<working>\temp\<cycle>",
+                       Working = @"<debug>\working",
+                       Cycle = 1,
+                       Version = new Version(10, 20)
                      };
       var paths = new Builder().Build(spec);
 
-      Console.WriteLine("paths.Root: {0}", paths.Root);       // z:\project1
-      Console.WriteLine("paths.Source: {0}", paths.Source);   // z:\project1\source
-      Console.WriteLine("paths.Debug: {0}", paths.Debug);     // z:\project1\debug
-      Console.WriteLine("paths.Working: {0}", paths.Working); // z:\project1\debug\working
-      Console.WriteLine("paths.Temp: {0}", paths.Temp);       // z:\project1\debug\working\temp
+      Console.WriteLine("paths.Root: {0}", paths.Root);
+      Console.WriteLine("paths.Source: {0}", paths.Source);
+      Console.WriteLine("paths.Debug: {0}", paths.Debug);
+      Console.WriteLine("paths.Working: {0}", paths.Working);
+      Console.WriteLine("paths.Temp: {0}", paths.Temp);
+      Console.WriteLine("paths.Cycle: {0}", paths.Cycle);
+      Console.WriteLine("paths.Version: {0}", paths.Version);
     }
   }
 }
+
+/* outputs 
+
+paths.Root: z:\project1\10.20
+paths.Source: z:\project1\10.20\source
+paths.Debug: z:\project1\10.20\debug
+paths.Working: z:\project1\10.20\debug\working
+paths.Temp: z:\project1\10.20\debug\working\temp\1
+paths.Cycle: 1
+paths.Version: 10.20
+
+*/
 ```
 
 src\Samples contains a solution with some samples
