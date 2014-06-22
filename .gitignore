@@ -9,3 +9,4 @@ test_results
 thirdparty/packages
 nugetworking
 src/Samples/**/packages
+src/Fitter.Minion/packages
