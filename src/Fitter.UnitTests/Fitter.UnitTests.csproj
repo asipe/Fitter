@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -33,6 +33,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\thirdparty\packages\net-4.5\NUnit\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="ScriptCs.Contracts">
+      <HintPath>..\..\thirdparty\packages\net-4.5\ScriptCs.Contracts\lib\net45\ScriptCs.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +47,20 @@
     <Compile Include="BaseTestCase.cs" />
     <Compile Include="Core\BuilderTest.cs" />
     <Compile Include="Core\SpecEntryTest.cs" />
+    <Compile Include="Core\UtilTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultComparer.cs" />
+    <Compile Include="ScriptCs\FitterBuilderTest.cs" />
+    <Compile Include="ScriptCs\ScriptPackTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fitter.Core\Fitter.Core.csproj">
       <Project>{92989AC2-82BB-41BE-B92F-A4C5778EEF96}</Project>
       <Name>Fitter.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fitter.ScriptCs\Fitter.ScriptCs.csproj">
+      <Project>{CD7298B5-AFAA-42E1-992A-0D88B734F209}</Project>
+      <Name>Fitter.ScriptCs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

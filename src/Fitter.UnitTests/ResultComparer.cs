@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using Fitter.Core;
 
 namespace Fitter.UnitTests {
   public class ResultComparer : IEqualityComparer<object> {
@@ -43,20 +44,16 @@ namespace Fitter.UnitTests {
       return actual
         .GetType()
         .GetProperties()
-        .Select(pi => new PropertyValue(pi.Name, ConvertToString(pi.GetValue(actual, null))))
+        .Select(pi => new PropertyValue(pi.Name, Util.ConvertToString(pi.GetValue(actual, null))))
         .OrderBy(pv => pv.Name)
         .ThenBy(pv => pv.Value);
     }
 
     private static IEnumerable<PropertyValue> GetValues(object actual) {
       return ((ExpandoObject)actual)
-        .Select(kvp => new PropertyValue(kvp.Key, ConvertToString(kvp.Value)))
+        .Select(kvp => new PropertyValue(kvp.Key, Util.ConvertToString(kvp.Value)))
         .OrderBy(pv => pv.Name)
         .ThenBy(pv => pv.Value);
-    }
-
-    private static string ConvertToString(object val) {
-      return val == null ? null : val.ToString();
     }
   }
 }

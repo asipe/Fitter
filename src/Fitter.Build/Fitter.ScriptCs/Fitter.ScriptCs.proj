@@ -4,8 +4,8 @@
 
   <PropertyGroup>
     <ProjectGuid>{f44333d6-a806-4023-8c06-a57042f56edf}</ProjectGuid>
-    <RootNamespace>Fitter.UnitTests</RootNamespace>
-    <AssemblyName>Fitter.UnitTests</AssemblyName>
+    <RootNamespace>Fitter.ScriptCs</RootNamespace>
+    <AssemblyName>Fitter.ScriptCs</AssemblyName>
   </PropertyGroup>
 
   <Import Project="..\Fitter.props" />
@@ -16,13 +16,11 @@
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="$(DebugDir)\Fitter.Core\Fitter.Core.dll" />
-    <Reference Include="$(DebugDir)\Fitter.ScriptCs\Fitter.ScriptCs.dll" />
-    <Reference Include="$(PackagesDir)\nunit\lib\nunit.framework.dll" />  
     <Reference Include="$(PackagesDir)\ScriptCs.Contracts\lib\net45\ScriptCs.Contracts.dll" />
-  </ItemGroup>    
+  </ItemGroup>  
 
   <ItemGroup>
-    <Compile Include="$(SrcDir)\Fitter.UnitTests\**\*.cs"/>
+    <Compile Include="$(SrcDir)\Fitter.ScriptCs\**\*.cs"/>
     <Compile Include="$(SrcDir)\Fitter.Properties\*.cs"/>
   </ItemGroup>
 

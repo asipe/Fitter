@@ -37,7 +37,6 @@ void Echo(string message) {
 
 void Bootstrap() {
   Run(config.Paths.NugetExePath, @"install .\src\Fitter.Nuget.Packages\common\packages.config -OutputDirectory .\thirdparty\packages\common -ExcludeVersion");
-  Run(config.Paths.NugetExePath, @"install .\src\Fitter.Nuget.Packages\net-4.0\packages.config -OutputDirectory .\thirdparty\packages\net-4.0 -ExcludeVersion");
   Run(config.Paths.NugetExePath, @"install .\src\Fitter.Nuget.Packages\net-4.5\packages.config -OutputDirectory .\thirdparty\packages\net-4.5 -ExcludeVersion");
 }
 
@@ -60,21 +59,13 @@ void BuildAll() {
   Run(@"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe", @".\src\Fitter.Build\Fitter.proj /ds /maxcpucount:6");
 }
 
-void BuildNugetPackages() {
-  TryDelete(config.Paths.NugetWorkingDir);
-  
- 
+void BuildFitterCoreNugetPackages() {
   var libDir = Path.Combine(config.Paths.NugetWorkingDir, @"Fitter.Core\lib");
-  var net40Dir = Path.Combine(libDir, "net40");
   var net45Dir = Path.Combine(libDir, "net45");    
 
   Directory.CreateDirectory(config.Paths.NugetWorkingDir);  
-  Directory.CreateDirectory(net40Dir);
   Directory.CreateDirectory(net45Dir);
- 
-  File.Copy(Path.Combine(config.Paths.DebugDir, @"net-4.0\Fitter.Core\Fitter.Core.dll"),
-            Path.Combine(net40Dir, "Fitter.Core.dll"));             
-            
+
   File.Copy(Path.Combine(config.Paths.DebugDir, @"net-4.5\Fitter.Core\Fitter.Core.dll"),
             Path.Combine(net45Dir, "Fitter.Core.dll"));             
             
@@ -82,6 +73,28 @@ void BuildNugetPackages() {
             Path.Combine(config.Paths.NugetWorkingDir, @"Fitter.Core\Fitter.Core.dll.nuspec"));
             
   Run(config.Paths.NugetExePath, @"pack .\nugetworking\Fitter.Core\Fitter.Core.dll.nuspec -OutputDirectory .\nugetworking\Fitter.Core");
+}
+
+void BuildFitterScriptCsNugetPackages() {
+  var libDir = Path.Combine(config.Paths.NugetWorkingDir, @"Fitter.ScriptCs\lib");
+  var net45Dir = Path.Combine(libDir, "net45");    
+
+  Directory.CreateDirectory(config.Paths.NugetWorkingDir);  
+  Directory.CreateDirectory(net45Dir);
+
+  File.Copy(Path.Combine(config.Paths.DebugDir, @"net-4.5\Fitter.ScriptCs\Fitter.ScriptCs.dll"),
+            Path.Combine(net45Dir, "Fitter.ScriptCs.dll"));             
+            
+  File.Copy(Path.Combine(config.Paths.SourceDir, @"Fitter.Nuget.Specs\Fitter.ScriptCs.dll.nuspec"),
+            Path.Combine(config.Paths.NugetWorkingDir, @"Fitter.ScriptCs\Fitter.ScriptCs.dll.nuspec"));
+            
+  Run(config.Paths.NugetExePath, @"pack .\nugetworking\Fitter.ScriptCs\Fitter.ScriptCs.dll.nuspec -OutputDirectory .\nugetworking\Fitter.ScriptCs");
+}
+
+void BuildNugetPackages() {
+  TryDelete(config.Paths.NugetWorkingDir);
+  BuildFitterCoreNugetPackages();
+  BuildFitterScriptCsNugetPackages();
 }
 
 void RunTests(string name, string assembly, string framework) {
@@ -96,7 +109,6 @@ void RunUnitTestsVS() {
 
 void RunAllTests() {
   RunUnitTestsVS();
-  RunTests("debug", Path.Combine(config.Paths.DebugDir, @"net-4.0\Fitter.UnitTests\Fitter.UnitTests.dll"), "net-4.0");
   RunTests("debug", Path.Combine(config.Paths.DebugDir, @"net-4.5\Fitter.UnitTests\Fitter.UnitTests.dll"), "net-4.5");
 }
 
@@ -104,8 +116,10 @@ void PushNugetPackages() {
   Console.WriteLine("------------------------------");
   Console.WriteLine("Push Nuget Packages!!");
   Console.WriteLine("Are You Sure?  Enter YES to Continue");
-  if (Console.ReadLine() == "YES") 
-    Run(config.Paths.NugetExePath, @"push .\nugetworking\Fitter.Core\Fitter.Core.0.0.0.1.nupkg");
+  if (Console.ReadLine() == "YES") {
+    Run(config.Paths.NugetExePath, @"push .\nugetworking\Fitter.Core\Fitter.Core.0.0.0.2.nupkg");
+    Run(config.Paths.NugetExePath, @"push .\nugetworking\Fitter.ScriptCs\Fitter.ScriptCs.0.0.0.2.nupkg");
+  }
   else 
     Console.WriteLine("Operation Cancelled...");
 }

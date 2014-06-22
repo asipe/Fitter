@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="BuildStage1;BuildStage2" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="BuildStage1;BuildStage2;BuildStage3" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Frameworks Include="v4.0"/>
     <Frameworks Include="v4.5"/>
   </ItemGroup>
 
   <ItemGroup>
     <Stage1 Include="Fitter.Core\Fitter.Core.proj" />
-    <Stage2 Include="Fitter.UnitTests\Fitter.UnitTests.proj" />
+    <Stage2 Include="Fitter.ScriptCs\Fitter.ScriptCs.proj" />
+    <Stage3 Include="Fitter.UnitTests\Fitter.UnitTests.proj" />
   </ItemGroup>
   
   <Target Name="BuildStage1" Outputs="%(Frameworks.Identity)">
@@ -23,4 +23,11 @@
              Properties="FrameworkVersion=%(Frameworks.Identity)"
              StopOnFirstFailure="false"/>
   </Target>
+  
+  <Target Name="BuildStage3" Outputs="%(Frameworks.Identity)">
+    <MSBuild BuildInParallel="true"
+             Projects="@(Stage3)"
+             Properties="FrameworkVersion=%(Frameworks.Identity)"
+             StopOnFirstFailure="false"/>
+  </Target>  
 </Project>

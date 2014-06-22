@@ -4,7 +4,7 @@ namespace Fitter.Core {
   public class SpecEntry {
     public SpecEntry(string name, object value) {
       Name = name;
-      Value = value == null ? null : value.ToString();
+      Value = Util.ConvertToString(value);
       mPattern = new Regex(Regex.Escape(string.Concat("<", name.ToLower(), ">")), RegexOptions.IgnoreCase);
     }
 
