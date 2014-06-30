@@ -3,7 +3,7 @@
 namespace Fitter.ScriptCs {
   public class ScriptPack : IScriptPack {
     public IScriptPackContext GetContext() {
-      return new FitterBuilder(); 
+      return new FitterBuilder();
     }
 
     public void Initialize(IScriptPackSession session) {}
