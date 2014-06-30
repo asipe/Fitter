@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Fitter.ScriptCs</id>
-    <version>0.0.0.2</version>
+    <version>0.0.0.5</version>
     <authors>asipe</authors>
     <owners>asipe</owners>
     <licenseUrl>https://github.com/asipe/Fitter/blob/master/LICENSE</licenseUrl>
@@ -14,7 +14,7 @@
     <tags>path file directory builder scriptcs</tags>
     <dependencies>
       <dependency id="ScriptCs.Contracts" version="0.9.0" />
-      <dependency id="Fitter.Core" version="0.0.0.2" />
+      <dependency id="Fitter.Core" version="0.0.0.5" />
     </dependencies>
   </metadata>
 </package>

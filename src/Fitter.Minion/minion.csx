@@ -113,8 +113,8 @@ void PushNugetPackages() {
   Console.WriteLine("Push Nuget Packages!!");
   Console.WriteLine("Are You Sure?  Enter YES to Continue");
   if (Console.ReadLine() == "YES") {
-    Run(config["NugetExePath"], @"push .\nugetworking\Fitter.Core\Fitter.Core.0.0.0.2.nupkg");
-    Run(config["NugetExePath"], @"push .\nugetworking\Fitter.ScriptCs\Fitter.ScriptCs.0.0.0.2.nupkg");
+    Run(config["NugetExePath"], @"push .\nugetworking\Fitter.Core\Fitter.Core.0.0.0.5.nupkg");
+    Run(config["NugetExePath"], @"push .\nugetworking\Fitter.ScriptCs\Fitter.ScriptCs.0.0.0.5.nupkg");
   }
   else 
     Console.WriteLine("Operation Cancelled...");

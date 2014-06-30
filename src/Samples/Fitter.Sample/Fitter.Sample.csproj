@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fitter.Core, Version=0.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Fitter.Core, Version=0.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Fitter.Core.0.0.0.2\lib\net45\Fitter.Core.dll</HintPath>
+      <HintPath>packages\Fitter.Core.0.0.0.5\lib\net45\Fitter.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

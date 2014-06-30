@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Fitter.Core</id>
-    <version>0.0.0.2</version>
+    <version>0.0.0.5</version>
     <authors>asipe</authors>
     <owners>asipe</owners>
     <licenseUrl>https://github.com/asipe/Fitter/blob/master/LICENSE</licenseUrl>
