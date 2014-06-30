@@ -25,6 +25,19 @@ namespace Fitter.Core {
         Value = pattern.Replace(Value, replacementValue);
     }
 
+    public override bool Equals(object obj) {
+      if ((obj == null) || (obj.GetType() != GetType()))
+        return false;
+
+      var o = (SpecEntry)obj;
+      return Equals(Name, o.Name) &&
+             Equals(Value, o.Value);
+    }
+
+    public override int GetHashCode() {
+      return 0;
+    }
+
     private static readonly Regex _UpdatePattern = new Regex("<[^< ]+>", RegexOptions.Compiled);
     private readonly Regex mPattern;
   }

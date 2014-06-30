@@ -46,6 +46,7 @@
     </Compile>
     <Compile Include="BaseTestCase.cs" />
     <Compile Include="Core\BuilderTest.cs" />
+    <Compile Include="Core\SpecEntryBuilderTest.cs" />
     <Compile Include="Core\SpecEntryTest.cs" />
     <Compile Include="Core\UtilTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

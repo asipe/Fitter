@@ -41,6 +41,7 @@
     <Compile Include="Builder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecEntry.cs" />
+    <Compile Include="SpecEntryBuilder.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

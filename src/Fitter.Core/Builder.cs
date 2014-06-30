@@ -6,19 +6,14 @@ using System.Linq;
 namespace Fitter.Core {
   public class Builder {
     public dynamic Build(object spec, int maxDepth = 5) {
-      spec = spec ?? _Empty;
-
-      var entries = spec
-        .GetType()
-        .GetProperties()
-        .Select(p => new SpecEntry(p.Name, p.GetValue(spec, null)))
-        .ToArray();
-
+      var entries = _EntryBuilder.Build(spec ?? _Empty);
       UpdateEntries(maxDepth, entries);
+      return BuildResult(entries);
+    }
 
+    private static dynamic BuildResult(SpecEntry[] entries) {
       IDictionary<string, object> result = new ExpandoObject();
       Array.ForEach(entries, se => result[se.Name] = se.Value);
-
       return result;
     }
 
@@ -34,5 +29,6 @@ namespace Fitter.Core {
     }
 
     private static readonly object _Empty = new {};
+    private static readonly SpecEntryBuilder _EntryBuilder = new SpecEntryBuilder();
   }
 }
